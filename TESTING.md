@@ -61,6 +61,10 @@ values. `AuthEmitTests.tree` pins each file's parts in the original's order.
 
 These parts differ from the original, by design:
 - **The flow paints one system ground behind its screens.** The original's screens draw on the window's.
+- **The flow hides its host's navigation bar** with `.toolbar(.hidden, for: .navigationBar)` on iOS. Shown in a page
+  inside a NavigationStack with a title, it draws as the original does, with no bar.
+- **The code screen keeps both lines of where the code went** with `.fixedSize(horizontal: false, vertical: true)`.
+  A screen squeezed by the keyboard shortens its spacers, never the address.
 - **The spinner uses `.tint(_:)`**, not the deprecated `CircularProgressViewStyle(tint:)`. The colour comes from the
   `spinner` role, which the Seer call sets to the original's white.
 - **The button's label has `.contentShape(Rectangle())`**, so its whole face takes a tap.

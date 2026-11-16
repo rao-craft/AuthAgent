@@ -141,7 +141,9 @@ enum BuildApps {
                     UserDefaults.standard.register(defaults: ["destination": name])
                     let opening = AuthLaunch.opening()
                     if opening.step != step || opening.forgot != forgot { failures.append("\(check) \\(name) opens \\(opening)") }
-                    if ImageRenderer(content: AuthPage().frame(width: 393, height: 852)).cgImage == nil {
+                    // As the app's gate shows it: the page in a NavigationStack with a title, which the flow's bar hides.
+                    let gate = NavigationStack { AuthPage().navigationTitle("Sign In") }
+                    if ImageRenderer(content: gate.frame(width: 393, height: 852)).cgImage == nil {
                         failures.append("\(check) \\(name) does not draw")
                     }
                 }

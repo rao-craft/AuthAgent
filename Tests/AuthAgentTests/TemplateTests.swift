@@ -50,7 +50,7 @@ final class TemplateTests: XCTestCase {
                 XCTAssertEqual(text.matches(#"(?m)^(let|var) "#), [], "\(place): no globals")
                 // What only iOS has stands inside `#if os(iOS)`, so the files build for the Mac too.
                 let everywhere = Self.everywhere(text).joined(separator: "\n")
-                for word in ["keyboardType", "textContentType", "textInputAutocapitalization", "navigationBarTitleDisplayMode",
+                for word in ["keyboardType", "textContentType", "textInputAutocapitalization", "navigationBarTitleDisplayMode", "for: .navigationBar",
                              "topBarTrailing", "UIImpactFeedbackGenerator", "UITextContentType", "uiColor:", "import UIKit"] {
                     XCTAssertFalse(everywhere.contains(word), "\(place): \(word) outside #if os(iOS)")
                 }

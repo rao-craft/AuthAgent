@@ -67,6 +67,10 @@ extension Template {
             .animation({{t:swap}}, value: step)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(AuthLook.background)
+            #if os(iOS)
+            // A page that shows the flow inside a NavigationStack draws no bar or title over it: the flow has none.
+            .toolbar(.hidden, for: .navigationBar)
+            #endif
             .sheet(isPresented: $forgot) {
                 AuthForgotView(reset: reset,
                                sent: verify == nil ? nil : { email in

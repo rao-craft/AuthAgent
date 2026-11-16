@@ -47,6 +47,8 @@ extension Template {
                         .foregroundStyle(AuthLook.secondaryForeground)
                         .multilineTextAlignment(.center)
                         .lineSpacing({{t:code.lineSpacing}})
+                        // Both lines, always: a screen squeezed by the keyboard shortens the spacers, never the address.
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(.bottom, {{t:code.headerBelow}})
                 .padding(.horizontal, {{t:code.inset}})

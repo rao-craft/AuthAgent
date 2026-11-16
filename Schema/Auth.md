@@ -223,6 +223,21 @@ A reason names:
 
 Each change that makes this agent more precise, dated, with what measured it (`TESTING.md`). Newest first.
 
+### 2026-11-15 · the flow hides its host's bar; the code screen's two lines never truncate
+
+The r6a floor showed AuthFlow as the body of a gate page inside a NavigationStack titled "Sign In". A large "Sign In"
+title was drawn above the flow:
+- on Sign In and Sign Up, everything from the mark to the button sat 53 pt lower;
+- on the code screen, the block sat 64 pt lower, and the squeeze cut "We sent a 6-digit code to\nada@seer.social" to
+  one truncated line.
+
+The fixes:
+- AuthFlow now hides its host's navigation bar (`.toolbar(.hidden, for: .navigationBar)` on iOS), so it draws as it
+  does with no host. The original has no bar.
+- The code screen's two lines are fixed to their height, so they never truncate.
+
+Measured: the suite and the gated build. The next floor reading is the first visual measure.
+
 ### 2026-11-15 · first version: Seer's sign-in flow at design parity
 
 The templates mirror the original's `Components/Auth` views subview by subview: the same composition, modifiers and
