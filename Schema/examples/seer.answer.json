@@ -1,0 +1,162 @@
+{
+  "agent": {
+    "word": "auth"
+  },
+  "body": "AuthFlow(signIn: { try await account.signIn(email: $0, password: $1) }, signUp: { try await account.signUp(email: $0, password: $1) }, verify: { try await account.verify(email: $0, code: $1) }, reset: { try await account.reset(email: $0) })",
+  "destinations": [
+    "auth",
+    "auth.signup",
+    "auth.code",
+    "auth.forgot"
+  ],
+  "expected": [
+    {
+      "kind": "view",
+      "name": "AuthFlow"
+    },
+    {
+      "kind": "view",
+      "name": "AuthSignInView"
+    },
+    {
+      "kind": "view",
+      "name": "AuthSignUpView"
+    },
+    {
+      "kind": "view",
+      "name": "AuthCodeView"
+    },
+    {
+      "kind": "view",
+      "name": "AuthForgotView"
+    },
+    {
+      "kind": "view",
+      "name": "AuthField"
+    },
+    {
+      "kind": "view",
+      "name": "AuthButton"
+    },
+    {
+      "kind": "view",
+      "name": "AuthMark"
+    },
+    {
+      "kind": "support",
+      "name": "AuthStep"
+    },
+    {
+      "kind": "support",
+      "name": "AuthLook"
+    },
+    {
+      "kind": "support",
+      "name": "AuthLaunch"
+    }
+  ],
+  "format": "granite-answer/1",
+  "initializers": [
+    "AuthFlow(pendingEmail: String? = nil, signIn: (@MainActor (_ email: String, _ password: String) async throws -> Void)? = nil, signUp: (@MainActor (_ email: String, _ password: String) async throws -> Void)? = nil, verify: (@MainActor (_ email: String, _ code: String) async throws -> Void)? = nil, resend: (@MainActor (_ email: String) async throws -> Void)? = nil, reset: (@MainActor (_ email: String) async throws -> Void)? = nil)"
+  ],
+  "made": [
+    {
+      "kind": "view",
+      "name": "AuthFlow",
+      "path": "Components/Auth/Views/AuthFlow.swift",
+      "state": "written"
+    },
+    {
+      "kind": "view",
+      "name": "AuthSignInView",
+      "path": "Components/Auth/Views/AuthSignInView.swift",
+      "state": "written"
+    },
+    {
+      "kind": "view",
+      "name": "AuthSignUpView",
+      "path": "Components/Auth/Views/AuthSignUpView.swift",
+      "state": "written"
+    },
+    {
+      "kind": "view",
+      "name": "AuthCodeView",
+      "path": "Components/Auth/Views/AuthCodeView.swift",
+      "state": "written"
+    },
+    {
+      "kind": "view",
+      "name": "AuthForgotView",
+      "path": "Components/Auth/Views/AuthForgotView.swift",
+      "state": "written"
+    },
+    {
+      "kind": "view",
+      "name": "AuthField",
+      "path": "Components/Auth/Views/AuthField.swift",
+      "state": "written"
+    },
+    {
+      "kind": "view",
+      "name": "AuthButton",
+      "path": "Components/Auth/Views/AuthButton.swift",
+      "state": "written"
+    },
+    {
+      "kind": "view",
+      "name": "AuthMark",
+      "path": "Components/Auth/Views/AuthMark.swift",
+      "state": "written"
+    },
+    {
+      "kind": "support",
+      "name": "AuthStep",
+      "path": "Components/Auth/Views/AuthStep.swift",
+      "state": "written"
+    },
+    {
+      "kind": "support",
+      "name": "AuthLook",
+      "path": "Components/Auth/Views/AuthLook.swift",
+      "state": "written"
+    },
+    {
+      "kind": "support",
+      "name": "AuthLaunch",
+      "path": "Components/Auth/Views/AuthLaunch.swift",
+      "state": "written"
+    }
+  ],
+  "notes": [
+    "Show the flow from a page with `body`: the account service's signIn, signUp, verify and reset events (add `resend:` for a resend link); a closure left out leaves its control out, and what one throws shows under the fields.",
+    "The app's navigation opens the page that shows AuthFlow for `auth`, `auth.signup`, `auth.code`, `auth.forgot`, by the launch aliases `auth.signup -> auth`, `auth.code -> auth`, `auth.forgot -> auth`; AuthFlow opens each as its launch line says, the reset sheet already up for `forgot`.",
+    "AuthLook reads the app's own `Color.accent`, `Font.brandTitle`, `Font.brandNote2.italic()`: each must exist in the app.",
+    "AuthMark draws the app's `SeerMark()`, which must exist; the kit sizes it, and turns it and shadows it as `tuning` says.",
+    "Sign In refuses an email that is not one, or a password shorter than 6, itself with \"Unauthorized: Invalid login credentials\", before signIn is asked."
+  ],
+  "path": "Components/Auth/Views/AuthFlow.swift",
+  "paths": [
+    "Components/Auth/Views/AuthFlow.swift",
+    "Components/Auth/Views/AuthSignInView.swift",
+    "Components/Auth/Views/AuthSignUpView.swift",
+    "Components/Auth/Views/AuthCodeView.swift",
+    "Components/Auth/Views/AuthForgotView.swift",
+    "Components/Auth/Views/AuthField.swift",
+    "Components/Auth/Views/AuthButton.swift",
+    "Components/Auth/Views/AuthMark.swift",
+    "Components/Auth/Views/AuthStep.swift",
+    "Components/Auth/Views/AuthLook.swift",
+    "Components/Auth/Views/AuthLaunch.swift"
+  ],
+  "problems": [],
+  "views": [
+    "AuthFlow",
+    "AuthSignInView",
+    "AuthSignUpView",
+    "AuthCodeView",
+    "AuthForgotView",
+    "AuthField",
+    "AuthButton",
+    "AuthMark"
+  ]
+}

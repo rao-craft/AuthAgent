@@ -1,0 +1,36 @@
+{
+  "mark": "Image(\"Logo\").resizable()",
+  "look": [
+    "accent = Color.brand",
+    "title = Font.custom(\"Lora\", size: 26)",
+    "subtitle = Font.custom(\"Lora-Italic\", size: 16)",
+    "button = Font.headline"
+  ],
+  "strings": [
+    "signIn.title = \"Welcome to Shelf\"",
+    "signIn.subtitle = \"Your books, everywhere\"",
+    "signIn.refused = \"Couldn't sign in: \"",
+    "signUp.subtitle = \"Start a reading list\"",
+    "code.sent = \"Enter the code we sent to\"",
+    "code.resend = \"Send a new code\""
+  ],
+  "tuning": [
+    "mark.size = 72",
+    "code.length = 4",
+    "swap = snappy",
+    "haptic = soft",
+    "forgot.detents = fraction(0.6) large",
+    "button.radius = 12",
+    "fields.inset = 32",
+    "button.inset = 32"
+  ],
+  "launch": [
+    "login = signIn",
+    "login.join = signUp",
+    "login.code = code",
+    "login.reset = code reset \"reader@example.com\"",
+    "login.forgot = forgot"
+  ],
+  "prefix": "Kit",
+  "imports": ["ShelfDesign"]
+}

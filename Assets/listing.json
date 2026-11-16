@@ -1,0 +1,19 @@
+{
+  "name": "Auth",
+  "tagline": "A sign-in flow for any app: sign in, sign up, an email code and a reset sheet, in the app's own look and words.",
+  "category": "developer",
+  "keywords": [
+    "swiftui",
+    "sign in",
+    "authentication",
+    "login",
+    "one-time code",
+    "password reset",
+    "granite",
+    "auth"
+  ],
+  "platforms": [
+    "macOS 14"
+  ],
+  "license": "MIT"
+}

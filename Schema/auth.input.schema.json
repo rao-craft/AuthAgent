@@ -1,0 +1,61 @@
+{
+  "$id" : "https://github.com/rao-craft/AuthAgent/blob/main/Schema/auth.input.schema.json",
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties" : false,
+  "description" : "Every field a call to auth may give; `directory` is Craft's, never the model's.",
+  "properties" : {
+    "directory" : {
+      "description" : "the project folder, filled by Craft",
+      "type" : "string"
+    },
+    "imports" : {
+      "description" : "modules the mark and the look's names live in, when the app's own target does not declare them",
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "into" : {
+      "description" : "the folder for the flow, relative to the project; Components/Auth when left out",
+      "type" : "string"
+    },
+    "launch" : {
+      "description" : "one line a `-destination` the flow opens for, `name = state`: signIn, signUp, forgot (Sign In with the reset sheet up), or code with an email (`auth.code = code \"name@example.com\"`)",
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "look" : {
+      "description" : "one line a look role, `role = Swift` naming the app's own colour or font: `accent = Color.accent`, `title = Font.brandTitle`; a role left out reads the system's",
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "mark" : {
+      "description" : "the app's mark at the head of Sign In and Sign Up: the Swift that makes a view the app has (`BrandMark()`), or an SF Symbol's name (`seal.fill`); person.crop.circle when left out",
+      "type" : "string"
+    },
+    "prefix" : {
+      "description" : "a prefix for the kit's types when the app already has names that clash: `Kit` writes KitAuthFlow",
+      "type" : "string"
+    },
+    "strings" : {
+      "description" : "one line a word on the screens, `key = \"words\"`: `signIn.title = \"Welcome back\"`; a key left out says its English default",
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "tuning" : {
+      "description" : "one line a timing, size or symbol, `key = value`: `swap = spring 0.38 0.88`, `mark.turn = 42`, `forgot.detents = medium large`; a key left out keeps its default",
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    }
+  },
+  "title" : "What auth takes",
+  "type" : "object"
+}

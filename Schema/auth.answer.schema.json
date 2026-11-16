@@ -1,0 +1,86 @@
+{
+  "$id" : "https://github.com/rao-craft/AuthAgent/blob/main/Schema/auth.answer.schema.json",
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "allOf" : [
+    {
+      "$ref" : "https://github.com/riteshpakala/Granite/blob/main/Schema/granite-agent-answer.schema.json"
+    }
+  ],
+  "description" : "A granite-answer/1 answer; what auth makes and expects is one of its own kinds, beside the root view's initializer, a page body, the launch destinations and the views.",
+  "properties" : {
+    "body" : {
+      "description" : "a page body that shows the flow over the app's account service",
+      "type" : "string"
+    },
+    "destinations" : {
+      "description" : "the -destination names the launch lines map, the first the page's own",
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "expected" : {
+      "items" : {
+        "properties" : {
+          "kind" : {
+            "enum" : [
+              "view",
+              "support"
+            ],
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        },
+        "required" : [
+          "kind",
+          "name"
+        ],
+        "type" : "object"
+      },
+      "type" : "array"
+    },
+    "initializers" : {
+      "description" : "the root view's initializer, as Swift declares it",
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "made" : {
+      "items" : {
+        "properties" : {
+          "kind" : {
+            "enum" : [
+              "view",
+              "support"
+            ],
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        },
+        "required" : [
+          "kind",
+          "name"
+        ],
+        "type" : "object"
+      },
+      "type" : "array"
+    },
+    "path" : {
+      "description" : "the root view's file",
+      "type" : "string"
+    },
+    "views" : {
+      "description" : "every view written, the root first",
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    }
+  },
+  "title" : "What auth answers (granite-answer/1)"
+}
