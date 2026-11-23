@@ -15,5 +15,12 @@
   "platforms": [
     "macOS 14"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "illustrations": [
+    {
+      "path": "Assets/illustrations/flow.png",
+      "alt": "A Sign In screen and an email code screen, beside the AuthFlow code that connects them to the app’s service.",
+      "caption": "A sign-in flow in your app’s look, wired to your service."
+    }
+  ]
 }
